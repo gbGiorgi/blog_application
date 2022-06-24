@@ -3,5 +3,4 @@ class SearchController < ApplicationController
     @query = Post.ransack(params[:q])
     @posts = @query.result(distinct: true)
   end
-
 end
