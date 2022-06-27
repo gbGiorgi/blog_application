@@ -5,7 +5,7 @@
       <tr>
         <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th>
         <th><%= sort_link(@query, :body, "Blog Content") %></th>
-        <th><%= sort_link(@query, :user_name, "Users") %></th>
+        <th><%= sort_link(@query, :user.name, "Users") %></th>
       </tr>
     </thead>
 
