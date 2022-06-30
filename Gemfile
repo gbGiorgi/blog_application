@@ -79,3 +79,5 @@ gem 'devise'
 gem "noticed", "~> 1.5"
 
 gem "ransack", "~> 3.2"
+
+gem 'will_paginate-bootstrap4'

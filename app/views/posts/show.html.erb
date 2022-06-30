@@ -21,3 +21,5 @@
     comment: comment %>
   <% end %>
 </div>
+
+<%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>

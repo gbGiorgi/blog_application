@@ -4,13 +4,13 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   # GET /posts/1 or /posts/1.json
   def show
     @post.update(views: @post.views + 1)
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
 
     mark_notifications_as_read
   end
