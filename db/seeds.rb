@@ -17,7 +17,7 @@ User.create(email: "bobokhidze@gmail.com",
             password_confirmation: "giorguna123")
 
 
-5.times do |x|
+10.times do |x|
   post = Post.create(title: "Post number #{x}",
                      body: "This body is for post number #{x}",
                      user_id: User.first.id)
