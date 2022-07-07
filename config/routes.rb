@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   authenticated :user, ->(user) { user.admin? } do
     get 'admin', to: 'admin#index'
     get 'admin/posts'
@@ -26,4 +27,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
   delete "users/delete/:id", to:"destroy_users#destroy"
+  end
 end
+
+

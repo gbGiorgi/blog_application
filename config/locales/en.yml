@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  search: Search
+  search!: Search!
+  Reply: "Reply"

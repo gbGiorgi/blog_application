@@ -7,13 +7,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= link_to t("Home"), root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "About", about_path, class: "nav-link" %>
+          <%= link_to t("About"), about_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Blog", posts_path, class: "nav-link" %>
+          <%= link_to t("Blog"), posts_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to(locale: :ge) do %>
+            <img  width=30 class="c-icon ms-3 mt-2"  alt="geoflag" src="https://cdn.countryflags.com/thumbs/georgia/flag-400.png">
+        <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to(locale: :en) do %>
+            <img  width=30 height=21 class="c-icon ms-3 mt-2" alt="enflag" src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png">
+        <% end %>
         </li>
       </ul>
       <ul class="navbar-nav">
