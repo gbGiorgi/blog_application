@@ -31,6 +31,35 @@
 
 en:
   hello: "Hello world"
+  about: About
+  blog: Blog
+  home: Home
+  admin: Admin
+  new_post: New post
+  edit_Account: Edit Account
+  sign_out: Sign out
+  sign_up: Sign up
+  login: Login
   search: Search
   search!: Search!
-  Reply: "Reply"
+  show_this_post: Show this post
+  back_to_posts: Back to posts
+  edit_this_post: Edit this post
+  destroy_this_post: Destroy this post
+  reply: Reply
+  title: Title
+  blog_Content: Blog content
+  users: Users
+  forgot_your_password: Forgot your password?
+  email: Email
+  current_password: Current password
+  name: Name
+  new_password: New password
+  update: Update
+  back: Back
+  change_my_password: Change my password
+  confirm_new_password: Confirm new password
+  delete: Delete
+  edit: Edit
+  commented_on: Commented On
+  cancel: Cancel

@@ -1,17 +1,33 @@
 ge:
-  About: "ჩვენს შესახებ"
-  Blog: "ბლოგი"
-  Home: "მთავარი"
-  Admin: "ადმინი"
-  New post: "ახალი პოსტი"
-  Edit Account: "ცვლილებები ექაუნთზე"
-  Sign out: "გამოსვლა"
-  Sign Up: "რეგისტრაცია"
-  Login: "შესვლა"
-  search: მოძებნა
+  about: ჩვენს შესახებ
+  blog: ბლოგი
+  home: მთავარი
+  admin: ადმინი
+  new_post: ახალი პოსტი
+  edit_Account: ექაუნთის ცვლილება
+  sign_out: გამოსვლა
+  sign_up: რეგისტრაცია
+  login: შესვლა
+  search: ძიება
   search!: მოძებნა!
-  Show this post: "პოსტის ნახვა"
-  Back to posts: "პოსტებზე დაბრუნება"
-  Edit this post: "პოსტის ცვლილბა"
-  Destroy this post: "პოსტის წაშლა"
-  Reply: "პასუხი"
+  show_this_post: პოსტის ნახვა
+  back_to_posts: პოსტებზე დაბრუნება
+  edit_this_post: პოსტის ცვლილება
+  destroy_this_post: პოსტის წაშლა
+  reply: პასუხი
+  title: სათაური
+  blog_Content: პოსტი
+  users: მომხმარებლები
+  forgot_your_password: პაროლი დაგავიწყდათ?
+  email: ელ-ფოსტა
+  current_password: მიმდინარე პაროლი
+  name: სახელი
+  new_password: ახალი პაროლი
+  update: განახლება
+  back: უკან
+  change_my_password: პაროლის განახლება
+  confirm_new_password: ახალი პაროლის დადასტურება
+  delete: წაშლა
+  edit: შეცვლა
+  commented_on: დაწერა კომენტარი
+  cancel: გაუქმება

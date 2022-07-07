@@ -3,9 +3,9 @@
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th><%= sort_link(@query, :title, "Title", default_order: :asc) %></th>
-        <th><%= sort_link(@query, :body, "Blog Content") %></th>
-        <th><%= sort_link(@query, :user_id, "Users") %></th>
+        <th><%= sort_link(@query, :title, t(:title), default_order: :asc) %></th>
+        <th><%= sort_link(@query, :body, t(:blog_Content)) %></th>
+        <th><%= sort_link(@query, :user_id, t(:users)) %></th>
       </tr>
     </thead>
 
