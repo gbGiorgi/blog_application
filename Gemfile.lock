@@ -150,7 +150,6 @@ GEM
       mail
       sinatra
       skinny (>= 0.1.2)
-      sqlite3-ruby
       thin
     marcel (1.0.2)
     matrix (0.4.2)
