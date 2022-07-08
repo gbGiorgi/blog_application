@@ -14,6 +14,31 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  ## DEVISE TUTORIAL SECTION
+
+  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: '127.0.0.1',
+  #   port: 1025
+  #  }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: '4709a2f39b264a28ac87e8cc7246bcda.vfs.cloud9.eu-central-1.amazonaws.com',
+    user_name: 'gbobokhidze@unisens.ge',
+    password: 'lmebuzczavbwevsa',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  ######
+
   # Enable server timing
   config.server_timing = true
 

@@ -30,6 +30,8 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '3b581a548df2dec0e0064b56777c53be483185f835e4bfc7b28f66c9a0153688f55b3bc6aacc207c6bed572e60bdea9627c64c2629ab01ac9536d7de3f090528'
 
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
+
   config.parent_controller = "TurboDeviseController"
   config.navigational_formats = ['*/*', :html, :turbo_stream]
   config.warden do |manager|
@@ -44,7 +46,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'blog-khoni.herokuapp.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

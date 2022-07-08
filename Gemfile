@@ -84,3 +84,4 @@ gem "ransack", "~> 3.2"
 
 gem 'will_paginate-bootstrap4'
 gem "friendly_id", "~> 5.4"
+gem "mailcatcher"
