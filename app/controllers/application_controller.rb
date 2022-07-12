@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to root_path, notice: @notifications
   # end
   def set_notifications
-    notifications = Notification.where(recipient: current_user).newest_first.limit(9)
+    notifications = Notification.includes(:recipient).where(recipient: current_user).newest_first.limit(9)
     @unread = notifications.unread
     @read = notifications.read
   end
