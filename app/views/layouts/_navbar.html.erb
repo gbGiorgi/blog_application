@@ -10,10 +10,10 @@
           <%= link_to t(:home), root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to t(:about), about_path, class: "nav-link" %>
+          <%= link_to t(:blog), posts_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to t(:blog), posts_path, class: "nav-link" %>
+          <%= render 'layouts/categories', categories: @nav_categories%>
         </li>
         <li class="nav-item">
           <%= link_to(locale: :ge) do %>

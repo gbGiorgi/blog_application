@@ -1,11 +1,12 @@
 <h1 class="text-center"><%= pluralize(@posts.count, "Result") %></h1>
 <div class="container">
-  <table class="table table-dark table-striped">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th><%= sort_link(@query, :title, t(:title), default_order: :asc) %></th>
+        <th><%= sort_link(@query, :category_name, "Category") %></th>
         <th><%= sort_link(@query, :body, t(:blog_Content)) %></th>
-        <th><%= sort_link(@query, :user_id, t(:users)) %></th>
+        <th><%= sort_link(@query, :user_name, t(:users)) %></th>
       </tr>
     </thead>
 
@@ -13,6 +14,7 @@
       <% @posts.each do |post| %>
         <tr>
           <td><%= link_to post.title, post %></td>
+          <td><%= link_to post.category.name, post.category %></td>
           <td><%= post.body.to_plain_text.truncate_words(25) %></td>
           <td><%= link_to post.user.name, post.user %></td>
         </tr>
@@ -20,3 +22,8 @@
     </tbody>
   </table>
 </div>
+<style>
+    tr:nth-child(even) {
+        background-color: #D6EEEE;
+    }
+</style>

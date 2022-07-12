@@ -1,8 +1,6 @@
 <div id="<%= dom_id post %>">
-  <h3><%= post.title %></h3>
-  <h4>posted by <%= link_to post.user.name, user_path(post.user) %></h4>
+  <h5 class="card-title"><%= post.title %></h5>
+  <h6 class="card-subtitle mb-2 text-muted">posted by <%= link_to post.user.name, user_path(post.user) %></h6>
   <h6><%= pluralize(post.views, "view") %></h6>
-  <div>
-    <%= post.body %>
-  </div>
+  <p class="card-text"><%= post.body %></p>
 </div>

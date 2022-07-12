@@ -18,14 +18,20 @@ User.create(email: "bobokhidze@gmail.com",
 posts = []
 comments = []
 
+category = Category.first_or_create!(name:"Uncategorized", display_in_nav: true)
+Category.first_or_create!(name:"Cars", display_in_nav: false)
+Category.first_or_create!(name:"Bikes", display_in_nav: true)
+Category.first_or_create!(name:"Boats", display_in_nav: true)
+
 elapsed = Benchmark.measure do
-  1000.times do |x|
+  10.times do |x|
     puts "Creating comment #{x}"
     post = Post.new(title: "Post number #{x}",
                        body: "This body is for post number #{x}",
-                       user_id: User.first.id)
+                       user_id: User.first.id,
+                    category: category)
     posts.push(post)
-    10.times do |y|
+    2.times do |y|
       puts "Creating comment #{y} for post #{x}"
       comment = post.comments.new(body: "Comment number #{y}",
                      user_id: User.second.id)

@@ -1,17 +1,28 @@
 <!--<p style="color: green"><%#= notice %></p>-->
-<div class="container">
-    <h1>Posts</h1>
-
-    <div id="posts">
-      <% @posts.each do |post| %>
-        <%= render post %>
-        <p>
-          <%= link_to t(:show_this_post), post %>
-        </p>
-      <% end %>
+<div class="container mt-5 mb-5">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="container">
+         <h1>Posts</h1>
+          <div id="posts">
+            <% @posts.each do |post| %>
+              <div class="card">
+                <div class="card-body">
+                  <%= render post %>
+                  <p>
+                    <%= link_to t(:show_this_post), post %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <%= link_to t(:new_post), new_post_path %>
+        </div>
+        <div class="pagination justify-content-center" >
+        <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+      </div>
     </div>
-
-    <%= link_to t(:new_post), new_post_path %>
+  </div>
 </div>
-
-<%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>

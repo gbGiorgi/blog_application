@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   authenticated :user, ->(user) { user.admin? } do
     get 'admin', to: 'admin#index'
