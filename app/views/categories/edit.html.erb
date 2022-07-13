@@ -1,10 +1,12 @@
-<h1>Editing category</h1>
+<div class="container" style="background: rgba(255, 255, 255, 0.85)">
+  <h1>Editing category</h1>
 
-<%= render "form", category: @category %>
+  <%= render "form", category: @category %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", categories_path %>
+  <div>
+    <%= link_to "Show this category", @category %> |
+    <%= link_to "Back to categories", categories_path %>
+  </div>
 </div>

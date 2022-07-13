@@ -1,12 +1,20 @@
-<div class="container">
-  <h1>Editing post</h1>
+<div class="container" style="background: white">
+  <div style="margin: 50px; padding-top: 15px; padding-bottom: 15px">
+    <h1>Editing post</h1>
 
-  <%= render "form", post: @post %>
+    <%= render "form", post: @post %>
 
-  <br>
+    <br>
 
-  <div>
-    <%= link_to t(:show_this_post), @post %> |
-    <%= link_to t(:back_to_posts), posts_path %>
+    <div>
+      <%= link_to t(:show_this_post), @post %> |
+      <%= link_to t(:back_to_posts), posts_path %>
+    </div>
   </div>
 </div>
+
+<!--<style>-->
+<!--  .container {-->
+<!--      margin: 50px;-->
+<!--  }-->
+<!--</style>-->

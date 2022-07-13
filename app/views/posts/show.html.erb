@@ -1,16 +1,19 @@
-<div class="container">
-  <%= render @post %>
-  <div>
-    <% if @post.user != current_user %>
-      <%= link_to t(:back_to_posts), posts_path %>
-    <% else %>
-      <%= link_to t(:edit_this_post), edit_post_path(@post) %>
-      <%= link_to t(:back_to_posts), posts_path %>
-      <%= button_to t(:destroy_this_post), @post, method: :delete %>
-    <% end %>
+<div class="container" style="margin-top: 25px;">
+  <div class="card">
+    <div style="margin: 10px 15px 0px 15px;"
+    <%= render @post %>
+    <div class="container" style="margin-bottom: 10px;">
+      <% if @post.user != current_user %>
+        <%= link_to t(:back_to_posts), posts_path %>
+      <% else %>
+        <%= link_to t(:edit_this_post), edit_post_path(@post) %>
+         <%= link_to t(:back_to_posts), posts_path %>
+        <%= button_to t(:destroy_this_post), @post, method: :delete, class: "btn btn-danger" %>
+      <% end %>
+    </div>
   </div>
 </div>
-<div class="container">
+<div class="container" style="margin-top: 15px;">
   <%= render 'comments/form',
     post: @post,
     comment: @post.comments.build,
