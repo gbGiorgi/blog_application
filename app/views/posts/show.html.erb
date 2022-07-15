@@ -24,5 +24,6 @@
     comment: comment %>
   <% end %>
 </div>
-
-<%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+<div class="pagination justify-content-center">
+  <%= will_paginate @comments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>

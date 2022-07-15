@@ -1,6 +1,25 @@
-<div class="container" style="background: wheat; margin: 30px">
-  <h1>My personal home page</h1>
-  <p>You can read more about me, or checkout my blog.</p>
-  <%= link_to t(:about), about_path, class: "btn btn-dark" %>
-  <%= link_to t(:blog), posts_path, class: "btn btn-primary"%>
+<div class="container">
+  <div class="window" style="background-color: whitesmoke; border-radius: 40px; text-align: center; background: rgba(255, 255, 255, 0.95)">
+  <%= image_tag "logo-removebg-preview.png", class: "logo"%>
+  <%= link_to t(:blog), posts_path, class: "btn btn-warning", style:"width: 50%; text-align: center"%>
+  </div>
 </div>
+<style>
+
+  .window {
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+  }
+
+  .logo {
+      margin: auto;
+      width: 80%;
+      padding: 10px;
+  }
+
+  .container {
+      padding-top: 5%;
+  }
+
+</style>
