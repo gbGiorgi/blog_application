@@ -16,14 +16,7 @@
           <%= render 'layouts/categories', categories: @nav_categories%>
         </li>
         <li class="nav-item">
-          <%= link_to(locale: :ge) do %>
-            <img  width=30 class="c-icon ms-3 mt-2"  alt="geoflag" src="https://cdn.countryflags.com/thumbs/georgia/flag-400.png">
-        <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(locale: :en) do %>
-            <img  width=30 height=21 class="c-icon ms-3 mt-2" alt="enflag" src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png">
-        <% end %>
+          <%= render 'layouts/languages', languages: @nav_languages%>
         </li>
       </ul>
       <ul class="navbar-nav">

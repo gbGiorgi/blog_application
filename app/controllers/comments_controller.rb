@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
@@ -27,9 +29,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to post_url(@post), notice: 'Comment has been updated'}
+        format.html { redirect_to post_url(@post), notice: 'Comment has been updated' }
       else
-        format.html { redirect_to posts_url(@post), alert: "Comment wasn't updated"}
+        format.html { redirect_to posts_url(@post), alert: "Comment wasn't updated" }
       end
     end
   end
@@ -38,6 +40,10 @@ class CommentsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def comment
+    # code here
   end
 
   def comment_params

@@ -22,6 +22,11 @@
               </div>
 
               <div class="form-outline mb-2">
+                <%= f.label :avatar, class:"form-label" %><br />
+                <%= f.file_field :avatar, autocomplete: "Profile", class:"form-control"%>
+              </div>
+
+              <div class="form-outline mb-2">
                 <%= f.label :password, class:"form-label" %>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>

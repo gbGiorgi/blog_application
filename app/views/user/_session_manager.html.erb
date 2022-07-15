@@ -2,7 +2,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <% if current_user.avatar.attached? %>
-        <%= image_tag(current_user.avatar, class: "rounded-circle", height: "25", width: "25", alt: "Avatar", loading: "lazy") %>
+        <%= image_tag(current_user.avatar, class: "rounded-circle", height: "22", width: "22", alt: "Avatar", loading: "lazy") %>
       <% else %>
         <%= current_user.name %>
       <% end %>
@@ -11,6 +11,7 @@
       <li><%= link_to t(:admin), admin_path, class: "dropdown-item" if current_user.admin? %></li>
       <li><%= link_to "New Category", new_category_path, class: "dropdown-item" if current_user.admin?%></li>
       <li><%= link_to t(:new_post), new_post_path, class: "dropdown-item" %></li>
+      <li><%= link_to "Profile", user_path(current_user), class: "dropdown-item" %></li>
       <li><%= link_to t(:edit_Account), edit_user_registration_path, class: "dropdown-item" %></li>
       <li><hr class="dropdown-divider"></li>
       <li><%= button_to t(:sign_out), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>

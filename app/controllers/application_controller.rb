@@ -1,17 +1,17 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_notifications, if: :current_user
   before_action :set_query
   before_action :set_categories
   before_action :set_locale
 
-
-
   def set_query
     @query = Post.ransack(params[:q])
   end
 
   def is_admin!
-    redirect_to root_path, alert: "You are not authorized to do that." unless current_user&.admin?
+    redirect_to root_path, alert: 'You are not authorized to do that.' unless current_user&.admin?
   end
 
   private
@@ -36,21 +36,17 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = extract_locale || I18n.default_locale
-
   end
 
   def extract_locale
     parsed_locale = params[:locale]
-    I18n.available_locales.map(&:to_s).include?(parsed_locale) ?
-      parsed_locale.to_sym :
-      nil
+    parsed_locale.to_sym if I18n.available_locales.map(&:to_s).include?(parsed_locale)
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :language])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :language])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name language])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name language])
   end
-
 end

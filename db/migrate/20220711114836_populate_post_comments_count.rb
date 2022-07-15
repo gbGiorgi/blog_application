@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PopulatePostCommentsCount < ActiveRecord::Migration[7.0]
   def change
     Post.all.each do |post|
