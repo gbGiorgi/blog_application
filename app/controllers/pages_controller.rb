@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  def home; end
+  def home
+    return unless current_user
+    return if current_user.payment_processor.nil?
 
-  def about; end
+    @portal_session = current_user.payment_processor.billing_portal
+  end
+
+  def about
+  end
 end

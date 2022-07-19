@@ -1,0 +1,8 @@
+<div class="container" style="background-color: wheat">
+  <h1>Checkout</h1>
+
+    <%= render partial: 'pay/stripe/checkout_button', locals: {
+      session: @checkout_session,
+      title: "Buy now"
+    } %>
+</div>

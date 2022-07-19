@@ -91,3 +91,7 @@ gem 'friendly_id', '~> 5.4'
 gem 'bullet', '~> 7.0'
 
 gem 'activerecord-import', '~> 1.4'
+
+gem 'stripe'
+
+gem "pay", "~> 4.0"

@@ -1,25 +1,49 @@
-<div class="container">
-  <div class="window" style="background-color: whitesmoke; border-radius: 40px; text-align: center; background: rgba(255, 255, 255, 0.95)">
-  <%= image_tag "logo-removebg-preview.png", class: "logo"%>
-  <%= link_to t(:blog), posts_path, class: "btn btn-warning", style:"width: 50%; text-align: center"%>
+<% if current_user %>
+  <div class="container">
+    <div class="window" style=" border-radius: 40px; text-align: center; background: rgba(255, 255, 255, 0.95); padding-bottom: 5%">
+      <%= image_tag "logo-removebg-preview.png", class: "logo"%>
+      <%= link_to t(:blog), posts_path, class: "btn btn-warning", style:"width: 50%; text-align: center"%><br><br>
+
+      <%= link_to "Buy new headphones", checkout_path(
+        line_items: ['price_1LNA3YEuYLa2Mh04HcuEGvv0'],
+        payment_mode: 'payment'
+      ), class: "btn btn-success", style:"width: 50%; text-align: center" %><br><br>
+
+      <%= link_to "Subscribe To Me!", checkout_path(
+        line_items: ['price_1LNDtbEuYLa2Mh04muXlyp1B'],
+        payment_mode: 'subscription'
+      ),
+      class:"btn btn-success", style:"width: 50%; text-align: center" %>
+    </div>
   </div>
-</div>
+  <div class="container card mt-1" style="border-radius: 15px">
+    <h2>User info</h2>
+    <%= link_to "Manage Billing", @portal_session.url unless @portal_session.nil? %>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="window" style=" border-radius: 40px; text-align: center; background: rgba(255, 255, 255, 0.95); padding-bottom: 5%">
+      <%= image_tag "logo-removebg-preview.png", class: "logo"%>
+      <%= link_to t(:blog), posts_path, class: "btn btn-warning", style:"width: 50%; text-align: center"%><br><br>
+      <%= link_to "Buy new headphones", checkout_path, class: "btn btn-success", style:"width: 50%; text-align: center"%>
+    </div>
+  </div>
+<% end %>
 <style>
 
   .window {
       margin: auto;
       width: 50%;
-      padding: 10px;
+      text-align: center;
   }
 
   .logo {
       margin: auto;
       width: 80%;
-      padding: 10px;
   }
 
   .container {
-      padding-top: 5%;
+      padding: 10%;
   }
 
 </style>

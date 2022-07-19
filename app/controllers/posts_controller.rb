@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @post.update(views: @post.views + 1)
+    viewer_counter(@post, @post.user)
     @comments = @post.comments.includes(:user, :rich_text_body).order(created_at: :desc).paginate(page: params[:page],
                                                                                                   per_page: 5)
 
