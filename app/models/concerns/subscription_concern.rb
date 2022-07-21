@@ -14,9 +14,9 @@ module SubscriptionConcern
     end
 
     def active_subscription
-      check_subscription_status if subscription_end_date.nil? || subscription_end_date < 15.days.from_now
+      check_subscription_status if subscription_end_date.nil? || subscription_end_date < Time.now
 
-      subscription_end_date.nil? ? false : subscription_end_date > 15.days.from_now
+      subscription_end_date.nil? ? false : subscription_end_date > Time.now
     end
   end
 end

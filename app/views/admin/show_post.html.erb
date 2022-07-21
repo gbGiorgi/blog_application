@@ -25,7 +25,7 @@
   <div class="row mt-1">
     <strong>Body:</strong> <%= @post.body %>
   </div>
-  <div class="row mt-1">
+  <div class="row mt-1" style="background-color: whitesmoke; margin: 5%; text-align: center; padding: 5%">
     <strong><%= pluralize(@post.comments.count, "Comment") %>:</strong>
     <% @post.comments.each do |comment| %>
       <div class="row mt-1">
@@ -35,3 +35,13 @@
     <% end %>
   </div>
 </div>
+<style>
+    .container {
+        background-color: wheat;
+        margin-top: 5%;
+        border-radius: 15px;
+        text-align: center;
+        padding-bottom: 1%;
+        padding-top: 1%;
+    }
+</style>

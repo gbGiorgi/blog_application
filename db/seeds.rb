@@ -1,48 +1,33 @@
-# frozen_string_literal: true
+admin = User.first_or_create!(email: 'bobokhidze-01@mail.ru',
+                             password: 'giorguna123',
+                             password_confirmation: 'giorguna123',
+                             name: "გიო {admin}",
+                             role: User.roles[:admin])
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
-User.create(email: 'bobokhidze-01@mail.ru',
-            name: 'გიო{admin}',
-            password: 'giorguna123',
-            password_confirmation: 'giorguna123',
-            role: User.roles[:admin])
-User.create(email: 'bobokhidze@gmail.com',
-            name: 'სიდი{user}',
-            password: 'giorguna123',
-            password_confirmation: 'giorguna123')
-posts = []
-comments = []
-
-category = Category.first_or_create!(name: 'Uncategorized', display_in_nav: true)
-Category.first_or_create!(name: 'Cars', display_in_nav: false)
-Category.first_or_create!(name: 'Bikes', display_in_nav: true)
-Category.first_or_create!(name: 'Boats', display_in_nav: true)
+commenter = User.first_or_create!(email: 'bobokhidze@mail.ru',
+                             password: 'giroguna123',
+                             password_confirmation: 'giorguna123',
+                             name: "გიორგი",)
+category = Category.first_or_create!(name:"Uncategorized", display_in_nav: true)
 
 elapsed = Benchmark.measure do
+  posts = []
   10.times do |x|
-    puts "Creating comment #{x}"
+    puts "Creating post #{x}"
     post = Post.new(title: "Post number #{x}",
-                    body: "This body is for post number #{x}",
-                    user_id: User.first.id,
+                    body: "Body #{x} Words go here Idk",
+                    user: admin,
+                    comments_count: 5,
                     category: category)
-    posts.push(post)
-    2.times do |y|
+
+    5.times do |y|
       puts "Creating comment #{y} for post #{x}"
-      comment = post.comments.new(body: "Comment number #{y}",
-                                  user_id: User.second.id)
-      comments.push(comment)
+      post.comments.build(body: "Comment #{y}",
+                          user: commenter)
     end
+    posts.push(post)
   end
+  Post.import(posts, recursive: true)
 end
 
-Post.import(posts)
-Comment.import(comments)
-
-puts "Elapsed time is #{elapsed.real} seconds"
+puts "Seeded development DB in #{elapsed.real} seconds"
