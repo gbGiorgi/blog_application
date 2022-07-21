@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/integer/time'
-require 'stripe'
 
 Rails.application.configure do
-  Stripe.api_key = Rails.application.credentials.secret_access_key
   config.after_initialize do
     Bullet.enable        = true
     Bullet.alert         = true
