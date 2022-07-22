@@ -9,6 +9,7 @@
               <div class="card" style="margin-bottom: 15px; background: rgba(255, 255, 255, 0.88)">
                 <div class="card-body">
                   <%= render post %>
+                  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %></p>
                   <p>
                     <%= button_to t(:show_this_post), post, :method => "get", class: "btn btn-warning" %>
                   </p>
