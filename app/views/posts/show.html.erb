@@ -4,7 +4,7 @@
     <%= render @post %>
     <div class="container" style="margin-bottom: 10px;">
       <p style="text-align: right"><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'like' : 'Likes' %></p>
-      <div class="conteiner" style="text-align: right">
+      <div class="container" style="text-align: right">
         <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
         <% if pre_like %>
           <%= button_to 'Unlike', post_like_path(@post.id, pre_like), method: :delete, class: 'btn btn-secondary' %>

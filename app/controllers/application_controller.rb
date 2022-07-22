@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def viewer_counter(first_argument, second_argument = nil)
-    if current_user == first_argument  || current_user == second_argument
+    if current_user == first_argument || current_user == second_argument
       first_argument.update(views: first_argument.views)
     else
       first_argument.update(views: first_argument.views + 1)

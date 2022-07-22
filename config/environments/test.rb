@@ -8,7 +8,6 @@ require 'active_support/core_ext/integer/time'
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
-
   config.after_initialize do
     Bullet.enable        = true
     Bullet.bullet_logger = true

@@ -94,4 +94,4 @@ gem 'activerecord-import', '~> 1.4'
 
 gem 'stripe'
 
-gem "pay", "~> 4.0"
+gem 'pay', '~> 4.0'
