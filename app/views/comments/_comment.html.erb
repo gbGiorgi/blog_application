@@ -6,7 +6,8 @@
   <% else %>
     <span>Posted <%= time_ago_in_words(comment.created_at) %> ago</span>
   <% end %>
-  <% if current_user == comment.user || current_user.admin? %>
+  <% if current_user != nil %>
+    <% if current_user == comment.user || current_user.role == "admin" %>
     <div class="btn-group float-end">
       <%= link_to t(:edit), nil, remote: true, class: "btn btn-primary",
       data: {
@@ -25,6 +26,7 @@
                  comment: comment,
                  submit_label: t(:update) %>
     </div>
+    <% end %>
   <% end %>
   <hr />
   <div id="comment-body-<%= comment.id %>">
