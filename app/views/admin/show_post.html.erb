@@ -5,6 +5,12 @@
     <div class="btn-group">
       <%= link_to t(:edit), edit_post_path(@post), class: "btn btn-warning" %>
       <%= button_to t(:delete), @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <%if @post.approve %>
+        <%= button_to "Un approve", un_approve_post_path(@post), method: :post , data: { turbo_method: :post }, class: "btn btn-outline-success", style: "margin: 5px" %>
+      <%else current_user.admin? %>
+        <%= button_to "Approve", approve_post_path(@post), method: :post , data: { turbo_method: :post }, class: "btn btn-outline-success", style: "margin: 5px" %>
+      <%end%>
+      <%= button_to "Back", admin_posts_path, method: :get, class: "btn btn-outline-primary", style: "margin: 5px" %>
     </div>
   </div>
   <div class="row mt-1">

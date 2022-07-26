@@ -33,6 +33,10 @@ class User < ApplicationRecord
     }
   end
 
+  def subscribed?
+    users.where(subscription_status: 't').any?
+  end
+
   private
 
   def set_default_role

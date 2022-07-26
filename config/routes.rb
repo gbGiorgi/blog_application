@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       get 'admin/comments'
       get 'admin/users'
       get 'admin/show_post/:id', to: 'admin#show_post', as: 'admin_post'
+
+      post '/approve_post/:user_id/:id', to: 'posts#approve_post', as: :approve_post
+      post '/un_approve_post/:user_id/:id', to: 'posts#un_approve_post', as: :un_approve_post
     end
 
     get 'checkout', to: 'checkouts#show'

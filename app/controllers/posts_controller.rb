@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[show edit update destroy approve_post un_approve_post]
   before_action :authenticate_user!, except: %i[show index]
 
   def index
-    @posts = Post.includes(:user, :rich_text_body).all.order(created_at: :desc).paginate(page: params[:page],
+    @posts = Post.includes(:user, :rich_text_body).where(approve: true).order(created_at: :desc).paginate(page: params[:page],
                                                                                          per_page: 5)
   end
 
@@ -56,6 +56,18 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def approve_post
+    @post.update(approve: true)
+
+    redirect_to admin_posts_path
+  end
+
+  def un_approve_post
+    @post.update(approve: false)
+
+    redirect_to admin_posts_path
   end
 
   private
