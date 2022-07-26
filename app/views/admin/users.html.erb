@@ -9,6 +9,7 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Views</th>
+      <th scope="col">Role</th>
     </tr>
     </thead>
     <tbody>
@@ -16,8 +17,9 @@
       <tr>
         <th scope="row"><%= user.id %></th>
         <th><%= user.name %></th>
-        <th><%= link_to user.email, user_path(user.id) %></th>
+        <th><%= link_to user.email, admin_user_path(user.id) %></th>
         <th><%= user.views %></th>
+        <th><%= user.role %></th>
       </tr>
     <% end %>
     </tbody>

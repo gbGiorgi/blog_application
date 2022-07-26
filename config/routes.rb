@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       get 'admin/users'
       get 'admin/show_post/:id', to: 'admin#show_post', as: 'admin_post'
 
+      get 'admin/user/:id', to: 'admin#show_user', as: 'admin_user'
+
+      post '/create_admin/:id', to: 'users#create_admin', as: :user_become_admin
+      post '/cancel_admin/:id', to: 'users#cancel_admin', as: :admin_become_user
+
       post '/approve_post/:user_id/:id', to: 'posts#approve_post', as: :approve_post
       post '/un_approve_post/:user_id/:id', to: 'posts#un_approve_post', as: :un_approve_post
     end

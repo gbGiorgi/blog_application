@@ -12,6 +12,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_admin
+    @user.update(role: 1)
+
+    redirect_to admin_posts_path
+  end
+
+  def cancel_admin
+    @user.update(role: 0)
+
+    redirect_to admin_posts_path
+  end
+
   private
 
   def set_user
