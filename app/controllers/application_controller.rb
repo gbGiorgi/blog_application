@@ -28,10 +28,6 @@ class ApplicationController < ActionController::Base
     @nav_categories = Category.where(display_in_nav: true).order(:name)
   end
 
-  # def fff
-  #   @notifications = Notification.where(recipient: current_user)
-  #   redirect_to root_path, notice: @notifications
-  # end
   def set_notifications
     notifications = Notification.includes(:recipient).where(recipient: current_user).newest_first.limit(9)
     @unread = notifications.unread

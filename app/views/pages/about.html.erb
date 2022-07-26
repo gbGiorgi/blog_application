@@ -1,3 +1,6 @@
-<h1>Pages#about</h1>
-<p>Find me in app/views/pages/about.html.erb</p>
-<%= link_to t(:home), root_path %>
+<%=link_to "map", nil, remote: true, data: {
+  controller: "locations",
+  action: "locations#initMap"
+} %>
+
+<div id="map" class="container" style="height: 500px; width: 100%"></div>

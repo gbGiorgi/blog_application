@@ -32,10 +32,9 @@ Rails.application.routes.draw do
     end
 
     get 'about', to: 'pages#about'
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-    # Defines the root path route ("/")
     root 'pages#home'
     delete 'users/delete/:id', to: 'destroy_users#destroy'
   end
+  get '/map', to: 'pages#about', as: :map
 end

@@ -2,8 +2,6 @@
 
 class User < ApplicationRecord
   include SubscriptionConcern
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
@@ -30,7 +28,7 @@ class User < ApplicationRecord
       },
       metadata: {
         pay_customer_id: pay_customer.id,
-        user_id: id # or pay_customer.owner_id
+        user_id: id
       }
     }
   end

@@ -4,13 +4,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[show index]
 
-  # GET /posts or /posts.json
   def index
     @posts = Post.includes(:user, :rich_text_body).all.order(created_at: :desc).paginate(page: params[:page],
                                                                                          per_page: 5)
   end
 
-  # GET /posts/1 or /posts/1.json
   def show
     viewer_counter(@post, @post.user)
     @comments = @post.comments.includes(:user, :rich_text_body).order(created_at: :desc).paginate(page: params[:page],
@@ -19,15 +17,12 @@ class PostsController < ApplicationController
     mark_notifications_as_read
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
   end
 
-  # GET /posts/1/edit
   def edit; end
 
-  # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
     @post.user = current_user
@@ -42,7 +37,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -55,7 +49,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
 
@@ -67,17 +60,12 @@ class PostsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
 
-    # If an old id or a numeric id was used to find the record, then
-    # the request slug will not match the current slug, and we should do
-    # a 301 redirect to the new path
     redirect_to @post, status: :moved_permanently if params[:id] != @post.slug
   end
 
-  # Only allow a list of trusted parameters through.
   def post_params
     params.require(:post).permit(:title, :body, :category_id)
   end
