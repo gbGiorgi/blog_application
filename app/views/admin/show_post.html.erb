@@ -1,7 +1,7 @@
 <div class="container">
-  <h1 class="text-center">Administrator</h1>
+  <h1 class="card-header">Administrator</h1>
   <%= render "admin/nav_links" %>
-  <div class="text-center mt-5">
+  <div class="text-center">
     <div class="btn-group">
       <%= link_to t(:edit), edit_post_path(@post), class: "btn btn-outline-warning", style: "margin: 5px" %>
       <%= button_to t(:delete), @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger", style: "margin: 5px" %>
@@ -43,7 +43,7 @@
 </div>
 <style>
     .container {
-        background-color: wheat;
+        background: rgba(255, 246, 219, 0.95);
         margin-top: 5%;
         border-radius: 15px;
         text-align: center;
