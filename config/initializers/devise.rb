@@ -15,9 +15,7 @@ class TurboFailureApp < Devise::FailureApp
 end
 
 Devise.setup do |config|
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
-
-  config.parent_controller = 'TurboDeviseController'
+   config.parent_controller = 'TurboDeviseController'
   config.navigational_formats = ['*/*', :html, :turbo_stream]
   config.warden do |manager|
     manager.failure_app = TurboFailureApp

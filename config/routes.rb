@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get 'admin/show_post/:id', to: 'admin#show_post', as: 'admin_post'
 
       get 'admin/user/:id', to: 'admin#show_user', as: 'admin_user'
-
+      get 'admin/destroy/:id' => 'admin#destroy', :via => :delete, :as => :admin_destroy_user
       post '/create_admin/:id', to: 'users#create_admin', as: :user_become_admin
       post '/cancel_admin/:id', to: 'users#cancel_admin', as: :admin_become_user
 

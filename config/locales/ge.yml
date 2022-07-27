@@ -4,7 +4,7 @@ ge:
   home: მთავარი
   admin: ადმინი
   new_post: ახალი პოსტი
-  edit_Account: ექაუნთის ცვლილება
+  account_settings: ექაუნთის პარამეტრები
   sign_out: გამოსვლა
   sign_up: რეგისტრაცია
   login: შესვლა
@@ -38,3 +38,5 @@ ge:
   subscribe_to_me: გამოწერა
   new_category: ახალი კატეგორია
   profile: პროფილი
+  password: პაროლი
+  password_confirmation: დაადასტურეთ პაროლი

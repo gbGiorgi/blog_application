@@ -36,7 +36,7 @@ en:
   home: Home
   admin: Admin
   new_post: New post
-  edit_Account: Edit Account
+  account_settings: Account Settings
   sign_out: Sign out
   sign_up: Sign up
   login: Login
@@ -70,3 +70,5 @@ en:
   subscribe_to_me: Subscribe To Me!
   new_category: New Category
   profile: Profile
+  password: Password
+  password_confirmation: Confirm Password

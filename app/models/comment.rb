@@ -3,6 +3,9 @@
 class Comment < ApplicationRecord
   belongs_to :post, counter_cache: true
   belongs_to :user
+
+  validates :body, presence: true
+
   has_rich_text :body
 
   after_create_commit :notify_recipient

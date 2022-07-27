@@ -3,7 +3,10 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :check_subscription_status
-  def dashboard; end
+
+  def dashboard
+    @members = User.where(subscription_status: "t")
+  end
 
   private
 

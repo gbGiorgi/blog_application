@@ -2,7 +2,26 @@
   <div class="card-header">
     <h1>Members#dashboard</h1>
 </div>
-  <p>Find me in app/views/members/dashboard.html.erb</p>
+  <div class="col-10" style="margin: 20px">
+    <% @members.each do |member| %>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= member.name %></h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<!--  <div class="col-10" style="margin-bottom: 20px">-->
+    <%# @posts.each do |post| %>
+<!--      <div class="card mt-3">-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title"><%#= link_to post.title, post %></h5>-->
+<!--          <p class="card-text">Posted <%#= "#{time_ago_in_words(post.created_at)} ago" %></p>-->
+<!--          <p class="card-text"><%#= post.body.to_plain_text.truncate_words(100) %></p>-->
+<!--        </div>-->
+<!--      </div>-->
+    <%# end %>
+<!--  </div>-->
 </div>
 <style>
   .container {
