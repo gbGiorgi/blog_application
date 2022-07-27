@@ -4,12 +4,14 @@ class UsersController < ApplicationController
   before_action :set_user
   def profile
     viewer_counter(@user)
-    @posts = @user.posts.includes(:rich_text_body).order(created_at: :desc)
+    @approved_posts = @user.posts.where(approve: true).includes(:rich_text_body).order(created_at: :desc)
     @total_views = 0
 
-    @posts.each do |post|
+    @approved_posts.each do |post|
       @total_views += post.views
     end
+
+    @not_approved_posts = @user.posts.where(approve: false).includes(:rich_text_body).order(created_at: :desc)
   end
 
   def create_admin
