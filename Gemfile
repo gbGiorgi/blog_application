@@ -63,3 +63,5 @@ gem 'activerecord-import', '~> 1.4'
 gem 'stripe'
 
 gem 'pay', '~> 4.0'
+
+gem 'whenever', require: false

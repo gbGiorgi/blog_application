@@ -4,15 +4,15 @@ class AdminController < ApplicationController
   def index; end
 
   def posts
-    @posts = Post.includes(:user).all
+    @posts = Post.includes(:user).all.order(:id)
   end
 
   def comments
-    @comments = Comment.all.includes(:user, :post, :rich_text_body)
+    @comments = Comment.all.includes(:user, :post, :rich_text_body).order(:id)
   end
 
   def users
-    @users = User.all
+    @users = User.all.order(:id)
   end
 
   def show_post
