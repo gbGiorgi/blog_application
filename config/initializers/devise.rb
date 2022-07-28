@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
-# class TurboFailureApp < Devise::FailureApp
-#   def respond
-#     if request_format == :turbo_stream
-#       :redirect
-#     else
-#       super
-#     end
-#   end
-#
-#   def skip_format?
-#     %w[html turbo_stream].include? request_format.to_s
-#   end
-# end
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      :redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w[html turbo_stream].include? request_format.to_s
+  end
+end
 
 Devise.setup do |config|
-   # config.parent_controller = 'TurboDeviseController'
+   config.parent_controller = 'TurboDeviseController'
   config.navigational_formats = ['*/*', :html, :turbo_stream]
-  # config.warden do |manager|
-  #   manager.failure_app = TurboFailureApp
-  # end
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end
 
   config.mailer_sender = 'blog-khoni.herokuapp.com'
 

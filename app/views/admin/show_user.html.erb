@@ -32,13 +32,15 @@
         <%= button_to "Back", admin_users_path, method: :get, class: "btn btn-outline-primary", style: "margin: 5px" %>
       </div>
     </div>
-    <hr style="margin: 1%;">
+  </div>
+  <div class="card-header">
+    <h4>Approved posts</h4>
   </div>
   <div class="row">
     <div class="col-1">
     </div>
-    <div class="col-10" style="margin-bottom: 20px">
-      <% @posts.each do |post| %>
+    <div class="col-10" style="margin-bottom: 20px; margin-top: -5%;">
+      <% @approved_posts.each do |post| %>
         <div class="card mt-3">
           <div class="card-body">
             <h5 class="card-title"><%= link_to post.title, post %></h5>
@@ -50,6 +52,26 @@
     </div>
     <div class="col-1"></div>
   </div>
+  <div class="card-header">
+    <h4>Un approved posts</h4>
+  </div>
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-10" style="margin-bottom: 20px; margin-top: -5%;">
+      <% @not_approved_posts.each do |post| %>
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to post.title, post %></h5>
+            <p class="card-text">Posted <%= "#{time_ago_in_words(post.created_at)} ago" %></p>
+            <p class="card-text"><%= post.body.to_plain_text.truncate_words(100) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
 </div>
 <style>
     .container {

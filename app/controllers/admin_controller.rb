@@ -22,6 +22,8 @@ class AdminController < ApplicationController
   def show_user
     @user = User.find(params[:id])
     @posts = Post.all.where(:user_id == @user.id).includes(:rich_text_body)
+    @approved_posts = @posts.where(approve: true)
+    @not_approved_posts = @posts.where(approve: false)
   end
 
   def destroy

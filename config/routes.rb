@@ -26,9 +26,9 @@ Rails.application.routes.draw do
 
     get 'search', to: 'search#index'
     get 'users/profile'
-    devise_scope :user do
-      post 'users/sign_up', to: 'devise/registrations#create'
-    end
+    # devise_scope :user do
+    #   post 'users/sign_up', to: 'devise/registrations#create'
+    # end
     devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations'

@@ -6,12 +6,18 @@ class UsersController < ApplicationController
     viewer_counter(@user)
     @approved_posts = @user.posts.where(approve: true).includes(:rich_text_body).order(created_at: :desc)
     @total_views = 0
+    @total_likes = 0
 
     @approved_posts.each do |post|
       @total_views += post.views
+      @total_likes += post.likes.count
     end
 
-    @not_approved_posts = @user.posts.where(approve: false).includes(:rich_text_body).order(created_at: :desc)
+    if current_user.nil?
+      @not_approved_posts = @user.posts.where(approve: false).includes(:user).order(approve: :desc)
+    else
+      not_approved_posts
+    end
   end
 
   def create_admin
@@ -30,5 +36,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def not_approved_posts
+    if current_user.id == @user.id
+      @not_approved_posts = @user.posts.where(approve: false).includes(:rich_text_body, :user).order(created_at: :desc)
+    else
+      @not_approved_posts = @user.posts.where(approve: false).includes(:user).order(created_at: :desc)
+    end
   end
 end

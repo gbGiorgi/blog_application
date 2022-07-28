@@ -1,14 +1,15 @@
-<div class="container mt-5" style="background: wheat">
+<div class="container mt-5">
   <div class="row">
     <div class="col-4">
-      <%= image_tag(@user.avatar, style:"width:150px; height: 150px; border-radius:100%") if @user.avatar.attached? %>
+      <%= image_tag(@user.avatar, style:"width:150px; height: 150px; border-radius:100%; margin: 5%") if @user.avatar.attached? %>
     </div>
     <div class="col-8">
       <h1><%= @user.name %></h1>
       <h6>
         <%= pluralize(@user.comments.size, "Comment") %> |
         <%= pluralize(@user.views, "view") %> |
-        <%= pluralize(@total_views, "Total Post View") %>
+        <%= pluralize(@total_views, "Total Post View") %> |
+        <%= pluralize(@total_likes, "Total likes") %>
       </h6>
     </div>
   </div>
@@ -48,3 +49,16 @@
     <div class="col-1"></div>
   </div>
 </div>
+<style>
+  .col-10 {
+      margin-left: 9%;
+  }
+
+  .col-8 {
+      padding-top: 3%;
+  }
+
+  .container {
+      background: rgba(255, 246, 219, 0.95);
+  }
+</style>
