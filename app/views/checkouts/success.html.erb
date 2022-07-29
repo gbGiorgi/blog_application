@@ -1,14 +1,34 @@
-<div class="container", style="background-color: wheat; border-radius: 15px;">
+<div class="container">
   <h1>Success!</h1>
-  <p>You just bought my stuff!</p>
-
-  <h2>Your total was $<%= @session.amount_total.to_f / 100%></h2>
+  <br>
+  <h5>You just bought my stuff and your total was $<%= @session.amount_total.to_f / 100%></h5>
   <br />
   <% @line_items.each do |item| %>
-    <h3><%= item.description %></h3>
+    <h6><%= item.description %></h6>
     <br />
-    <p>$<%= item.price.unit_amount.to_f / 100 %></p>
-    <% product = Stripe::Product.retrieve(item.price.product) %>
-    <%= image_tag(product.images.first, width: 300) %>
+    <div class="image">
+      <% product = Stripe::Product.retrieve(item.price.product) %>
+      <%= image_tag(product.images.first, style: "width: 300; border-radius: 20px") %>
+    </div>
   <% end %>
 </div>
+<style>
+  .container {
+      background: rgba(255, 246, 219, 0.95);
+      border-radius: 15px;
+      margin-top: 5%;
+      width: 30%;
+  }
+
+  .image {
+      text-align: center;
+      padding-bottom: 5%;
+      border-radius: 100%;
+  }
+
+  h1 {
+      padding-top: 5%;
+      text-align: center;
+      color: green;
+  }
+</style>

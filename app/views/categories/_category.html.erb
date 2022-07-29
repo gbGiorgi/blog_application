@@ -1,9 +1,9 @@
 <div class="container" id="<%= dom_id category %>">
   <h2>
     <% target = action_name.eql?("show") ? categories_path : category %>
-    <div class="wrapper">
-    <%= button_to category.name.capitalize, target, :method => "get", class: "btn btn-warning" %>
-    </div>
+<!--    <div class="wrapper">-->
+      <%#= button_to category.name.capitalize, target, :method => "get", class: "btn btn-warning" %>
+<!--    </div>-->
   </h2>
   <% category.posts.includes(:user, :rich_text_body).each do |post| %>
     <div class="card" style="margin-bottom: 5px;left: 0px;right: 0px;margin-left: 20px;margin-right: 20px;">
@@ -14,7 +14,7 @@
   <% end %>
 </div>
 <style>
-  .wrapper {
-      text-align: center;
-  }
+    .wrapper {
+        text-align: center;
+    }
 </style>

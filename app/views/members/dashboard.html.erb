@@ -1,32 +1,28 @@
-<div class="container">
-  <div class="card-header">
-    <h1>Members#dashboard</h1>
-</div>
-  <div class="col-10" style="margin: 20px">
-    <% @members.each do |member| %>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5 class="card-title"><%= member.name %></h5>
+<div class="container mt-5 mb-5">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-8">
+      <div class="card" style="background-color: transparent; border: 0px;">
+        <h4 style="text-align: center; padding-bottom: 3%">Welcome! Here you can find only members posts.</h4>
         </div>
+        <div class="container">
+          <div id="posts">
+            <% @posts.each do |post| %>
+              <div class="card" style="margin-bottom: 15px; background: rgba(255, 255, 255, 0.88)">
+                <div class="card-body">
+                  <%= render post %>
+                  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %></p>
+                  <p>
+                    <%= button_to t(:show_this_post), post, :method => "get", class: "btn btn-warning" %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <div class="pagination justify-content-center">
+        <%= will_paginate @posts, list_classes: %w(pagination justify-content-end) %>
       </div>
-    <% end %>
+      </div>
+    </div>
   </div>
-<!--  <div class="col-10" style="margin-bottom: 20px">-->
-    <%# @posts.each do |post| %>
-<!--      <div class="card mt-3">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title"><%#= link_to post.title, post %></h5>-->
-<!--          <p class="card-text">Posted <%#= "#{time_ago_in_words(post.created_at)} ago" %></p>-->
-<!--          <p class="card-text"><%#= post.body.to_plain_text.truncate_words(100) %></p>-->
-<!--        </div>-->
-<!--      </div>-->
-    <%# end %>
-<!--  </div>-->
 </div>
-<style>
-  .container {
-      background-color: wheat;
-      border-radius: 15px;
-      margin-top: 5%;
-  }
-</style>

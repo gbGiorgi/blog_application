@@ -1,7 +1,26 @@
 <!--<p style="color: green"><%#= notice %></p>-->
-<br>
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-  <% end %>
+<div class="container">
+  <div class="card-header">
+    <h4>Select a category</h4>
+  </div>
+  <br />
+  <div id="categories">
+    <% @categories.each do |category| %>
+      <%= link_to category.name, category_path(category), class:"btn btn-warning"%>
+    <% end %>
+  </div>&nbsp;
 </div>
+<style>
+  .container {
+      background: rgba(255, 246, 219, 0.95);
+      border-radius: 15px;
+      margin-top: 5%;
+  }
+
+  h4 {
+      text-align: center;
+  }
+  #categories {
+      text-align: center;
+  }
+</style>

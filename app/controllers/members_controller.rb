@@ -5,7 +5,9 @@ class MembersController < ApplicationController
   before_action :check_subscription_status
 
   def dashboard
-    @members = User.where(subscription_status: "t")
+    @posts = Post.joins(:user).where(approve: true).
+      includes(:rich_text_body, :user).where(user: { subscription_status: "t"}).paginate(page: params[:page],
+                                                                                         per_page: 5)
   end
 
   private
