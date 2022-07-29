@@ -24,13 +24,4 @@ class Post < ApplicationRecord
   def should_generate_new_friendly_id?
     title_changed? || slug.blank?
   end
-
-  def self.check_update
-    Post.all.where(approve: true).each do |post|
-      if post.created_at + 10.day < Time.now && post.likes.count.zero?
-        post.update(approve: false)
-        puts "Post where post.id = #{post.id} unapproved"
-      end
-    end
-  end
 end
