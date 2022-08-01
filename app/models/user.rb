@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
 
   has_many :likes, dependent: :destroy
+  has_many :address
 
   pay_customer stripe_attributes: :stripe_attributes
 

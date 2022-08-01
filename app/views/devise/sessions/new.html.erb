@@ -7,24 +7,24 @@
              class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
              alt="Sample photo">
         <div class="card-body p-2 p-md-3">
-          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 text-center">Login</h3>
+          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 text-center"><%= t(:login) %></h3>
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
 
             <div class="form-outline mb-2">
-              <%= f.label :email, class:"form-label" %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: t(:email), class:"form-control" %>
+              <%= f.label t(:email), class:"form-label" %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: :email, class:"form-control" %>
             </div>
 
             <div class="form-outline mb-2">
-              <%= f.label :password, class:"form-label" %><br />
-              <%= f.password_field :password, autocomplete: t(:current_password), class:"form-control" %>
+              <%= f.label t(:password), class:"form-label" %><br />
+              <%= f.password_field :password, autocomplete: :current_password, class:"form-control" %>
             </div>
 
             <% if devise_mapping.rememberable? %>
               <div class="form-outline mb-2">
                 <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
+                <%= f.label t(:remember_me) %>
               </div>
             <% end %>
 

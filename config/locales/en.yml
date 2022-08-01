@@ -72,3 +72,7 @@ en:
   profile: Profile
   password: Password
   password_confirmation: Confirm Password
+  remember_me: Remember me
+  not_receive_confirmation: Didn't receive confirmation instructions?
+  registration: Registration
+  forgot_password: Forgot your password?

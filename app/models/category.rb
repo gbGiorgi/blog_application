@@ -2,4 +2,5 @@
 
 class Category < ApplicationRecord
   has_many :posts, dependent: :destroy
+  validates :name, uniqueness: { scope: :name }
 end

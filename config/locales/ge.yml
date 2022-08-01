@@ -40,3 +40,7 @@ ge:
   profile: პროფილი
   password: პაროლი
   password_confirmation: დაადასტურეთ პაროლი
+  remember_me: დაიმახსოვრე მონაცემები
+  not_receive_confirmation: არ მიგიღიათ დასტურის შეტყობინება?
+  registration: რეგისტრაცია
+  forgot_password: პაროლი დაგავიწყდათ?

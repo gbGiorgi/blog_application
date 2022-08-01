@@ -8,7 +8,10 @@ class CategoriesController < ApplicationController
     @categories = Category.order(name: :asc).all
   end
 
-  def show; end
+  def show
+    @category_posts = @category.posts.where(approve: true).includes(:user, :rich_text_body).paginate(page: params[:page],
+                                                                                          per_page: 5)
+  end
 
   def new
     @category = Category.new
