@@ -1,8 +1,4 @@
-
-
-# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
-en:
+ge:
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

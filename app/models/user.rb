@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
 
   has_many :likes, dependent: :destroy
-  has_many :address
+  has_many :locations, dependent: :destroy
 
   pay_customer stripe_attributes: :stripe_attributes
 
@@ -25,10 +25,10 @@ class User < ApplicationRecord
 
   def stripe_attributes(pay_customer)
     {
-      address: {
-        city: pay_customer.owner.city,
-        country: pay_customer.owner.country
-      },
+      # address: {
+      #   city: pay_customer.owner.city,
+      #   country: pay_customer.owner.country
+      # },
       metadata: {
         pay_customer_id: pay_customer.id,
         user_id: id

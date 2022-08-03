@@ -4,10 +4,10 @@
       <%= image_tag "logo-removebg-preview.png", class: "logo"%>
       <%= link_to t(:blog), posts_path, class: "btn btn-warning", style:"width: 50%; text-align: center"%><br><br>
 
-      <%= link_to t(:buy_headphone), checkout_path(
-        line_items: ['price_1LNA3YEuYLa2Mh04HcuEGvv0'],
-        payment_mode: 'payment'
-      ), class: "btn btn-success", style:"width: 50%; text-align: center" %><br><br>
+<!--      <%#= link_to t(:buy_headphone), checkout_path(-->
+<!--        line_items: ['price_1LNA3YEuYLa2Mh04HcuEGvv0'],-->
+<!--        payment_mode: 'payment'-->
+<!--      ), class: "btn btn-success", style:"width: 50%; text-align: center" %><br><br>-->
 
       <%= link_to t(:subscribe_to_me), checkout_path(
         line_items: ['price_1LNDtbEuYLa2Mh04muXlyp1B'],
@@ -25,7 +25,12 @@
     <div class="window" style=" border-radius: 40px; text-align: center; background: rgba(255, 255, 255, 0.95); padding-bottom: 5%">
       <%= image_tag "logo-removebg-preview.png", class: "logo"%>
       <%= link_to t(:blog), posts_path, class: "btn btn-warning", style:"width: 50%; text-align: center"%><br><br>
-      <%= link_to "Buy new headphones", checkout_path, class: "btn btn-success", style:"width: 50%; text-align: center"%>
+      <%#= link_to "Buy new headphones", checkout_path, class: "btn btn-success", style:"width: 50%; text-align: center"%>
+      <%= link_to t(:subscribe_to_me), checkout_path(
+        line_items: ['price_1LNDtbEuYLa2Mh04muXlyp1B'],
+        payment_mode: 'subscription'
+      ),
+                  class:"btn btn-success", style:"width: 50%; text-align: center" %>
     </div>
   </div>
 <% end %>

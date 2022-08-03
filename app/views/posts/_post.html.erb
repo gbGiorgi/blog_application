@@ -1,8 +1,8 @@
 <div id="<%= dom_id post %>">
   <h5 class="card-title"><strong><%= post.title %></strong></h5>
   <p class="card-text"><%= post.body %></p>
-  <h6 class="card-subtitle mb-2 text-muted">posted by <%= link_to post.user.name, user_path(post.user) %></h6>
-  <h6><%= pluralize(post.views, "view") %></h6>
+  <h6 class="card-subtitle mb-2 text-muted"><%= t(:posted_by)%> <%= link_to post.user.name, user_path(post.user) %></h6>
+  <h6><%= pluralize(post.views, t(:view)) %></h6>
 </div>
 
 <style>

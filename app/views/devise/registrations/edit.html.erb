@@ -1,60 +1,131 @@
-<div class="container" style="background: whitesmoke; border-radius: 15px; margin-top: 5%;">
-  <div class="header" style="text-align: center">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-lg-8 col-xl-6">
+      <div class="card rounded-3">
+        <div class="card-body p-2 p-md-3">
+          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 text-center"><%= t(:account_settings) %></h3>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="form-outline mb-2">
+              <%= f.label t(:email), class:"form-label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: :email, class:"form-control" %>
+            </div>
+
+            <div class="form-outline mb-2">
+              <%= f.label t(:name), class:"form-label" %>
+              <%= f.text_field :name, class:"form-control" %>
+            </div>
+
+            <div class="form-outline mb-2">
+              <%= f.label t(:password), class:"form-label" %>
+              <%= f.password_field :password, autocomplete: t(:new_password), class:"form-control", placeholder: t(:minimum_characters) %>
+            </div>
+
+            <div class="form-outline mb-2">
+              <%= f.label t(:password_confirmation), class:"form-label" %>
+              <%= f.password_field :password_confirmation, autocomplete: t(:new_password), class:"form-control", placeholder: t(:repeat_new_password) %>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <div style="margin-top: 10px;">
+                <span class="btn btn-large btn-success btn-file">
+                  <%= f.label t(:add_avatar) %>
+                  <%= f.file_field :avatar, accept: "image/*" %>
+                </span>
+              </div>&nbsp;
+
+              <div style="margin-top: 10px;">
+                <%= link_to t(:add_address), add_location_path(current_user), class: 'btn btn-info' %>
+              </div>
+            </div><br /><br />
+
+
+            <div>
+              <% if @user.locations.size > 1 %>
+                <h6>Addresses: </h6>
+              <% else %>
+                <h6>Address: </h6>
+              <% end %>
+              <ul style="list-style-type:disc">
+                  <% @user.locations.each do |location| %>
+                  <il>
+                    <%= link_to location.address, nil, remote: true, data: {
+                    controller: "locations",
+                    action: "locations#initMap",
+                    locations_latitude_param: "#{location.latitude}",
+                    locations_longitude_param: "#{location.longitude}" } %>&nbsp;&nbsp;
+                    <%= link_to "delete", destroy_address_path(current_user,location), method: :delete,
+                                class: 'btn btn-outline-secondary', style: 'float: right; margin-right: 8%;' %><hr>
+                  </il>
+                  <% end %>
+
+              </ul>
+            </div>
+
+
+            <div id="map" class="d-none"></div><br />
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %><br />
+
+            <div class="form-outline mb-2">
+              <%= f.label t(:current_password), class:"form-label" %>
+              <%= f.password_field :current_password, autocomplete: t(:current_password),
+                                   class:"form-control", placeholder: t(:need_current_password) %>
+            </div><br />
+
+            <div class="actions text-center">
+              <%= f.submit t(:update), class: 'btn btn-primary' %>
+            </div>
+
+
+          <% end %>
+          <div class="back" style="text-align: right">
+            <%= link_to t(:back), :back %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: t(:email) %>
-    </div>
-
-    <div class="field">
-      <%= f.label :avatar %><br />
-      <%= f.file_field :avatar, accept: "image/*" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: t(:new_password) %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: t(:new_password) %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: t(:current_password) %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit t(:update) %>
-    </div>
-  <% end %>
-
-<!--      <h3>Cancel my account</h3>-->
-
-<!--    <p>Unhappy? <%#= button_to "Cancel my account", registration_path(resource_name), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: "btn btn-danger"%></p>-->
-
-
-
-
-  <%= link_to t(:back), :back %>
 </div>
+
+<style>
+
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    #map {
+        height: 350px;
+        width:  100%;
+
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+    hr {
+        /*width: 92%;*/
+        margin-right: 8%;
+    }
+
+</style>

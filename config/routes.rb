@@ -26,9 +26,8 @@ Rails.application.routes.draw do
 
     get 'search', to: 'search#index'
     get 'users/profile'
-    # devise_scope :user do
-    #   post 'users/sign_up', to: 'devise/registrations#create'
-    # end
+
+
     devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations'
@@ -36,7 +35,6 @@ Rails.application.routes.draw do
 
     get '/u/:id', to: 'users#profile', as: 'user'
 
-    # /posts/1/comments/4
     resources :posts do
       resources :comments
       resources :likes
@@ -47,5 +45,9 @@ Rails.application.routes.draw do
     root 'pages#home'
     delete 'users/delete/:id', to: 'destroy_users#destroy'
   end
-  get '/map', to: 'pages#about', as: :map
+  get "users/locations/add", to: "locations#new", as: :add_location
+  post "users/locations/add", to: "locations#create", as: :create_location
+  get "/users/:user_id/locations/all", to: "locations#index", as: :locations
+  get "/users/locations/show/:id", to: "locations#show", as: :show_location
+  get 'users/:user_id/locations/delete/:id', to: 'locations#destroy', via: :delete, as: :destroy_address
 end

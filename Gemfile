@@ -65,3 +65,5 @@ gem 'stripe'
 gem 'pay', '~> 4.0'
 
 gem 'whenever', require: false
+
+gem 'geocoder'

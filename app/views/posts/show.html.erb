@@ -3,7 +3,7 @@
     <div style="margin: 10px 15px 0px 15px;"
     <%= render @post %>
     <div class="container" style="margin-bottom: 10px;">
-      <p style="text-align: right"><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'like' : 'Likes' %></p>
+      <p style="text-align: right"><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? t(:like) : t(:likes) %></p>
       <div class="container" style="text-align: right">
         <% if current_user %>
           <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>

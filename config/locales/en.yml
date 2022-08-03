@@ -1,34 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
   about: About
@@ -76,3 +45,16 @@ en:
   not_receive_confirmation: Didn't receive confirmation instructions?
   registration: Registration
   forgot_password: Forgot your password?
+  add_avatar: Add avatar
+  add_address: Add address
+  minimum_characters: At least six characters
+  repeat_new_password: Repeat new password
+  need_current_password: We need your current password to confirm your changes
+  no_notifications: No notifications yet
+  more: More
+  posted_by: Posted by
+  view: View
+  like: Like
+  likes: Likes
+  members_posts: Welcome! Here you can find only members posts
+  category: Category

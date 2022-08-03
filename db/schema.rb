@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_26_101330) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_02_055635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_101330) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -208,8 +221,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_101330) do
     t.string "name"
     t.integer "views", default: 0
     t.integer "role"
-    t.string "city"
-    t.string "country"
     t.string "subscription_status"
     t.datetime "subscription_end_date"
     t.datetime "subscription_start_date"
@@ -224,6 +235,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_101330) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "locations", "users"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"

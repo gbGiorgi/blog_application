@@ -29,7 +29,7 @@ ge:
   confirm_new_password: ახალი პაროლის დადასტურება
   delete: წაშლა
   edit: შეცვლა
-  commented_on: დაწერა კომენტარი
+  commented_on: დაწერა კომენტარი პოსტზე
   cancel: გაუქმება
   members: წევრები
   categories: კატეგორიები
@@ -44,3 +44,16 @@ ge:
   not_receive_confirmation: არ მიგიღიათ დასტურის შეტყობინება?
   registration: რეგისტრაცია
   forgot_password: პაროლი დაგავიწყდათ?
+  add_avatar: ავატარის დამატება
+  add_address: მისამართის დამატება
+  minimum_characters: მინიმუმ ექვსი სიმბოლო
+  repeat_new_password: გაიმეორეთ ახალი პაროლი
+  need_current_password: ცვლილებების შესანახად ჩვენ გვჭირდება მიმდინარე პაროლი
+  no_notifications: ამჟამად შეტყობინებები არ არის
+  more: მეტი
+  posted_by: დაპოსტა
+  view: ნახვა
+  like: მოწონება
+  likes: მოწონება
+  members_posts: მოგესალმებით! აქ შეგიძლიათ ნახოთ მხოლოდ წევრების პოსტები
+  category: კატეგორია
