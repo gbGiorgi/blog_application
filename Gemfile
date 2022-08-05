@@ -67,3 +67,9 @@ gem 'pay', '~> 4.0'
 gem 'whenever', require: false
 
 gem 'geocoder'
+
+gem 'telephone_number'
+
+gem 'rspec-rails'
+
+gem 'shoulda-matchers'

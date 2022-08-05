@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :mobiles
   get 'members/dashboard'
   resources :categories
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
@@ -50,4 +51,8 @@ Rails.application.routes.draw do
   get "/users/:user_id/locations/all", to: "locations#index", as: :locations
   get "/users/locations/show/:id", to: "locations#show", as: :show_location
   get 'users/:user_id/locations/delete/:id', to: 'locations#destroy', via: :delete, as: :destroy_address
+
+  get 'users/mobile_phone', to: 'mobiles#new'
+  post 'users/mobile_phone', to: 'mobiles#create'
+  get 'users/:user_id/mobile_phone/delete/:id', to: 'mobiles#destroy', via: :delete, as: :destroy_mobile
 end

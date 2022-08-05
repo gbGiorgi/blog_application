@@ -8,10 +8,10 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  has_many :mobiles, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
-
   has_many :likes, dependent: :destroy
   has_many :locations, dependent: :destroy
 

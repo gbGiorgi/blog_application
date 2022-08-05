@@ -38,6 +38,9 @@
 
               <div style="margin-top: 10px;">
                 <%= link_to t(:add_address), add_location_path(current_user), class: 'btn btn-info' %>
+              </div>&nbsp;
+              <div style="margin-top: 10px;">
+                <%= link_to 'Add Number', users_mobile_phone_path, class: 'btn btn-info' %>
               </div>
             </div><br /><br />
 
@@ -50,15 +53,17 @@
               <% end %>
               <ul style="list-style-type:disc">
                   <% @user.locations.each do |location| %>
-                  <il>
+                  <li>
                     <%= link_to location.address, nil, remote: true, data: {
                     controller: "locations",
                     action: "locations#initMap",
                     locations_latitude_param: "#{location.latitude}",
                     locations_longitude_param: "#{location.longitude}" } %>&nbsp;&nbsp;
-                    <%= link_to "delete", destroy_address_path(current_user,location), method: :delete,
-                                class: 'btn btn-outline-secondary', style: 'float: right; margin-right: 8%;' %><hr>
-                  </il>
+                    <%= link_to "Delete", destroy_address_path(current_user,location), method: :delete,
+                                class: 'btn btn-outline-secondary',
+                                style: 'float: right; margin-right: 8%; padding-bottom: 1px; text-align: center' %>
+                    <hr>
+                  </li>
                   <% end %>
 
               </ul>
@@ -66,6 +71,26 @@
 
 
             <div id="map" class="d-none"></div><br />
+
+            <div style="margin-top: 10px;">
+              <% if @user.mobiles.size > 1 %>
+                <h6>Mobile Number: </h6>
+              <% else %>
+                <h6>Mobile Numbers: </h6>
+              <% end %>
+              <ul class="list-inside space-y-2">
+                <% @user.mobiles.each do |mobile| %>
+                  <br />
+                  <li>
+                    <%= mobile.number %>
+                    <%= link_to 'Delete', destroy_mobile_path(current_user,mobile), method: :delete,
+                                class: 'btn btn-outline-secondary', style: 'float: right;',
+                                style: 'float: right; margin-right: 8%; padding-bottom: 1px; text-align: center'%>
+                    <hr>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
