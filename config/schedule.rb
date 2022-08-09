@@ -1,6 +1,8 @@
-set :output, "log/cron.log"
+# frozen_string_literal: true
+
+set :output, 'log/cron.log'
 # set :environment, "development"
 
 every 1.day do
-  rake "check_update:post"
+  rake 'check_update:post'
 end

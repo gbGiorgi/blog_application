@@ -39,10 +39,10 @@ class UsersController < ApplicationController
   end
 
   def not_approved_posts
-    if current_user.id == @user.id
-      @not_approved_posts = @user.posts.where(approve: false).includes(:rich_text_body, :user).order(created_at: :desc)
-    else
-      @not_approved_posts = @user.posts.where(approve: false).includes(:user).order(created_at: :desc)
-    end
+    @not_approved_posts = if current_user.id == @user.id
+                            @user.posts.where(approve: false).includes(:rich_text_body, :user).order(created_at: :desc)
+                          else
+                            @user.posts.where(approve: false).includes(:user).order(created_at: :desc)
+                          end
   end
 end

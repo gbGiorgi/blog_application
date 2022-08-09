@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     get 'search', to: 'search#index'
     get 'users/profile'
 
-
     devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations'
@@ -46,10 +45,10 @@ Rails.application.routes.draw do
     root 'pages#home'
     delete 'users/delete/:id', to: 'destroy_users#destroy'
   end
-  get "users/locations/add", to: "locations#new", as: :add_location
-  post "users/locations/add", to: "locations#create", as: :create_location
-  get "/users/:user_id/locations/all", to: "locations#index", as: :locations
-  get "/users/locations/show/:id", to: "locations#show", as: :show_location
+  get 'users/locations/add', to: 'locations#new', as: :add_location
+  post 'users/locations/add', to: 'locations#create', as: :create_location
+  get '/users/:user_id/locations/all', to: 'locations#index', as: :locations
+  get '/users/locations/show/:id', to: 'locations#show', as: :show_location
   get 'users/:user_id/locations/delete/:id', to: 'locations#destroy', via: :delete, as: :destroy_address
 
   get 'users/mobile_phone', to: 'mobiles#new'

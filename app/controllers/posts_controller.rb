@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user, :rich_text_body).where(approve: true).order(created_at: :desc).paginate(page: params[:page],
-                                                                                         per_page: 5)
+                                                                                                          per_page: 5)
   end
 
   def show

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MobilesController < ApplicationController
   before_action :authenticate_user!
 
@@ -16,7 +18,7 @@ class MobilesController < ApplicationController
 
   def destroy
     @mobile = Mobile.find_by(id: params[:id])
-    #@user = User.find_by(id: params[:user_id])
+    # @user = User.find_by(id: params[:user_id])
     @mobile.destroy
     redirect_to edit_user_registration_path
   end
