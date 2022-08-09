@@ -13,12 +13,12 @@
         line_items: ['price_1LNDtbEuYLa2Mh04muXlyp1B'],
         payment_mode: 'subscription'
       ),
-      class:"btn btn-success", style:"width: 50%; text-align: center" %>
+      class:"btn btn-success", style:"width: 50%; text-align: center" %><br /><br />
+
+      <div class="btn btn-lg btn-primary btn-block", style="width: 50%; text-align: center; height: 5%;">
+        <%= link_to "Manage Billing", @portal_session.url unless @portal_session.nil? %>
+      </div>
     </div>
-  </div>
-  <div class="container card mt-1" style="border-radius: 15px">
-    <h2>User info</h2>
-    <%= link_to "Manage Billing", @portal_session.url unless @portal_session.nil? %>
   </div>
 <% else %>
   <div class="container">
@@ -51,4 +51,9 @@
       padding: 10%;
   }
 
+  a:link {
+        color: black;
+      text-decoration: none;
+  }
+  
 </style>

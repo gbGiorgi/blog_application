@@ -1,26 +1,63 @@
-<h2>Change your password</h2>
+<!--<div class="container">-->
+<!--  <div class="card-header">-->
+<!--    <h2>Change your password</h2>-->
+<!--  </div>-->
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, t(:new_password) %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+
+  <%#= render "devise/shared/links" %>
+<!--</div>-->
+<!--<style>-->
+<!--  .container {-->
+<!--      background: rgba(255,255,255,0.95);-->
+<!--      border-radius: 15px;-->
+<!--      padding: 3%;-->
+<!--      margin-top: 3%;-->
+<!--  }-->
+
+<!--  .card-header {-->
+<!--      text-align: center;-->
+<!--      padding-bottom: 1%;-->
+<!--  }-->
+<!--</style>-->
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<div class="container text-center">
+  <h3><i class="bi bi-key-fill fa-4x"></i></h3>
+  <h2 class="text-center">Forgot Password?</h2>
+  <p>You can reset your password here.</p>
+  <div class="panel-body">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="field">
+        <%= f.password_field :password, autofocus: true, autocomplete: t(:new_password), class:"form-control", placeholder:"New password"  %>
+      </div><br />
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: t(:new_password), class:"form-control", placeholder:"Confirm password" %>
+      </div><br />
+
+      <div class="actions">
+        <%= f.submit t(:change_my_password), class:"btn btn-lg btn-primary btn-block"  %>
+      </div>
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: t(:new_password) %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, t(:confirm_new_password) %><br />
-    <%= f.password_field :password_confirmation, autocomplete: t(:new_password) %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit t(:change_my_password) %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
+<style>
+    .form-gap {
+        padding-top: 70px;
+    }
+    .container{
+        background: rgba(255, 255, 255, 0.95);
+        padding: 3%;
+        margin-top: 5%;
+        max-width: 30%;
+        border-radius: 15px;
+    }
+</style>

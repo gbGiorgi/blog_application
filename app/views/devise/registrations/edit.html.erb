@@ -108,8 +108,9 @@
 
 
           <% end %>
-          <div class="back" style="text-align: right">
-            <%= link_to t(:back), :back %>
+            <div class="back" style="text-align: right">
+              <%= button_to "Back", posts_path ,method: :get, class:"btn btn-outline-info" %>
+            </div>
           </div>
         </div>
       </div>
